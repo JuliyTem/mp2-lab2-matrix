@@ -132,7 +132,7 @@ TEST(TVector, compare_equal_vectors_return_true)
 	v[2] = 2;
 	w[2] = 2;
 
-	EXPECT_EQ(1, v == w);
+	EXPECT_EQ(v, w);
 }
 
 TEST(TVector, compare_vector_with_itself_return_true)
@@ -141,7 +141,7 @@ TEST(TVector, compare_vector_with_itself_return_true)
 
 	v[2] = 2;
 	
-	EXPECT_EQ(1, v == v);
+	EXPECT_EQ(v, v);
 }
 
 TEST(TVector, vectors_with_different_size_are_not_equal)
@@ -152,7 +152,7 @@ TEST(TVector, vectors_with_different_size_are_not_equal)
 	v[2] = 2;
 	w[2] = 2;
 
-	EXPECT_NE(1, v == w);
+	EXPECT_NE(v, w);
 }
 
 TEST(TVector, can_add_scalar_to_vector)
@@ -191,10 +191,17 @@ TEST(TVector, can_add_vectors_with_equal_size)
 	TVector<int> w(4);
 	TVector<int> q(4);
 
+	q[2] = 3;
+	q[3] = 1;
+	v[2] = 7;
+	v[3] = 8;
+	w[2] = 10;
+	w[3] = 12;
+
 	q = v + w;
 	v = v + w;
 
-	EXPECT_EQ(1, q == v);
+	EXPECT_EQ(q, v);
 	
 }
 
@@ -212,10 +219,17 @@ TEST(TVector, can_subtract_vectors_with_equal_size)
 	TVector<int> w(4);
 	TVector<int> q(4);
 
+	q[2] = 3;
+	q[3] = 1;
+	v[2] = 7;
+	v[3] = 8;
+	w[2] = 10;
+	w[3] = 12;
+
 	q = v - w;
 	v = v - w;
 
-	EXPECT_EQ(1, q == v);
+	EXPECT_EQ(q, v);
 }
 
 TEST(TVector, cant_subtract_vectors_with_not_equal_size)
@@ -232,10 +246,17 @@ TEST(TVector, can_multiply_vectors_with_equal_size)
 	TVector<int> w(4);
 	TVector<int> q(4);
 
+	q[2] = 3;
+	q[3] = 1;
+	v[2] = 7;
+	v[3] = 8;
+	w[2] = 10;
+	w[3] = 12;
+
 	q = v * w;
 	v = v * w;
 
-	EXPECT_EQ(1, q == v);
+	EXPECT_EQ(q, v);
 }
 
 TEST(TVector, cant_multiply_vectors_with_not_equal_size)
